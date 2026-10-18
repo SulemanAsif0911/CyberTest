@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Resources | Cyber Hayat PK</title>
+<meta name="description" content="Practical Cyber Hayat tools: anonymous incident reporting, evidence checklist generator, security quiz, complaint letter generator, legal rights, and Urdu support." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="assets/img/logo.png" type="image/png" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/tools.css">
+<script src="assets/js/native.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+      <span>Cyber Hayat<span class="tag">Respect &middot; Support &middot; Empower</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+            <li><a href="index.html" data-nav-link data-i18n="nav.home" class="">Home</a></li>
+            <li><a href="guide.html" data-nav-link data-i18n="nav.guide" class="">Guide</a></li>
+            <li><a href="chatbot.html" data-nav-link data-i18n="nav.chatbot" class="">Chatbot</a></li>
+            <li><a href="resources.html" data-nav-link data-i18n="nav.resources" class="is-active">Resources</a></li>
+            <li><a href="helplines.html" data-nav-link data-i18n="nav.helplines" class="">Helplines</a></li>
+            <li><a href="toolkit.html" data-nav-link class="">Toolkit</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-cta">
+      <a href="helplines.html" class="btn btn-outline btn-sm" data-i18n="cta.helplines">Helplines</a>
+      <a href="chatbot.html" class="btn btn-accent btn-sm" data-i18n="cta.getHelp">Get Help Now</a>
+    </div>
+    <button class="qx-btn" id="quickExit" type="button" aria-label="Quick exit: leave the app right now" title="Quick exit">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Exit</span>
+    </button>
+    <button class="settings-toggle" data-settings-toggle aria-label="Open settings">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV MENU ============ -->
+<div id="navMenu">
+  <div class="navmenu-top">
+    <a href="index.html" class="navmenu-brand"><img src="assets/img/logo.png" alt="Cyber Hayat" /> Cyber Hayat</a>
+    <button id="navMenuClose" class="navmenu-close" aria-label="Close menu">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navmenu-nav">
+    <div class="shell">
+      <ul>
+              <li><a href="index.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">01</span><span class="navmenu-item-label" data-i18n="nav.home">Home</span></a></li>
+              <li><a href="guide.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">02</span><span class="navmenu-item-label" data-i18n="nav.guide">Guide</span></a></li>
+              <li><a href="chatbot.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">03</span><span class="navmenu-item-label" data-i18n="nav.chatbot">Chatbot</span></a></li>
+              <li><a href="resources.html" data-nav-link class="navmenu-item is-active"><span class="navmenu-item-index">04</span><span class="navmenu-item-label" data-i18n="nav.resources">Resources</span></a></li>
+              <li><a href="helplines.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">05</span><span class="navmenu-item-label" data-i18n="nav.helplines">Helplines</span></a></li>
+              <li><a href="toolkit.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">06</span><span class="navmenu-item-label">Toolkit</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="navmenu-bottom">
+    <a href="chatbot.html" class="btn btn-accent" data-i18n="cta.getHelp">Get Help Now</a>
+    <a href="helplines.html" class="btn btn-ghost-dark" data-i18n="cta.helplines">View Helplines</a>
+    <button class="btn btn-ghost-dark" data-settings-toggle>Settings ⚙️</button>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero page-hero-photo" style="background-image:url('assets/img/banners/hero-overload.jpg')">
+  <div class="shell">
+    <div class="page-hero-inner">
+      <div>
+        <div class="page-hero-breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Resources</span></div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.resources.eyebrow">Cyber Safety Action Center</span></div>
+        <h1 class="display-1" style="max-width:38rem;" data-i18n="hero.resources.title">Practical tools for every step of the process.</h1>
+        <p class="lede" style="margin-top:1.25rem;color:rgba(255,255,255,.62)">
+          Submit an incident report, build an evidence checklist, check your password hygiene, generate a
+          complaint letter, and understand your rights &mdash; all in one place. Anything you submit goes
+          securely to our support team, and you’ll get an email confirmation.
+        </p>
+        <div class="hero-badges">
+          <span class="hero-badge">📝 Incident Report</span>
+          <span class="hero-badge">✅ Evidence Checklist</span>
+          <span class="hero-badge">🔐 Security Quiz</span>
+          <span class="hero-badge">📄 Complaint Letter</span>
+        </div>
+      </div>
+      <img src="assets/img/logo.png" alt="Cyber Hayat shield emblem" class="page-hero-logo" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK JUMP ============ -->
+<section class="section-tight section-surface">
+  <div class="shell">
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+      <a href="#incident-report" class="tag-pill">01 &middot; Incident Report</a>
+      <a href="#case-tracker" class="tag-pill">02 &middot; Case Tracker</a>
+      <a href="#library" class="tag-pill">03 &middot; Harassment Library</a>
+      <a href="#legal-rights" class="tag-pill">04 &middot; Legal Rights</a>
+      <a href="#evidence-tool" class="tag-pill">05 &middot; Evidence Checklist</a>
+      <a href="#security-tools" class="tag-pill">06 &middot; Security Quiz</a>
+      <a href="#letter-tool" class="tag-pill">07 &middot; Complaint Letter</a>
+      <a href="#community" class="tag-pill">08 &middot; Community</a>
+      <a href="#trust" class="tag-pill">09 &middot; Press &amp; Partners</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 INCIDENT REPORT ============ -->
+<section class="section" id="incident-report">
+  <div class="shell">
+    <div class="grid grid-2" style="gap:3rem;align-items:start;">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Private First Step</div>
+        <h2 class="display-2">Confidential Incident Report</h2>
+        <p class="lede" style="margin-top:1rem;">
+          This is received directly by the Cyber Hayat support team, saved securely, and can be used to
+          connect you with the right authorities where needed. You’ll be asked for your email once, so we
+          can confirm receipt and reach you if it’s urgent.
+        </p>
+        <div class="notice-box warn" style="margin-top:1.5rem;">
+          This is a support-team record, not an official police or government submission. When ready,
+          please also file through the FIA or NCCIA portal directly.
+        </div>
+      </div>
+      <div class="card">
+        <form id="incidentForm" data-track-form style="display:flex;flex-direction:column;gap:1.1rem;">
+          <div class="field">
+            <label for="incType">Harassment type</label>
+            <select id="incType">
+              <option value="">Choose type</option>
+              <option>Blackmail or sextortion</option>
+              <option>Fake account or impersonation</option>
+              <option>Cyber stalking</option>
+              <option>Doxing or privacy leak</option>
+              <option>Online bullying or threats</option>
+              <option>Hate speech or disinformation</option>
+            </select>
+          </div>
+          <div class="grid grid-2" style="gap:1rem;">
+            <div class="field"><label for="incPlatform">Platform</label><input type="text" id="incPlatform" placeholder="e.g. Instagram"></div>
+            <div class="field"><label for="incDate">Approximate date</label><input type="date" id="incDate"></div>
+          </div>
+          <div class="field"><label for="incContact">Alternate contact (optional)</label><input type="text" id="incContact" placeholder="Phone or a second email, if useful"></div>
+          <div class="field"><label for="incDesc">Brief description</label><textarea id="incDesc" rows="4" placeholder="What happened, when, and who was involved"></textarea></div>
+          <label class="field-check"><input type="checkbox" id="incAck"> I understand this is a support-team record, not an official police/government submission.</label>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <button type="button" id="incSaveBtn" class="btn btn-primary">Submit Report</button>
+            <button type="button" id="incExportBtn" class="btn btn-outline">Download a Copy</button>
+          </div>
+          <div class="result-box" id="incResult">Your case reference will appear here after submitting.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 CASE TRACKER ============ -->
+<section class="section section-surface" id="case-tracker">
+  <div class="shell">
+    <div class="grid grid-2" style="gap:3rem;align-items:start;">
+      <div class="card">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>After Reporting</div>
+        <h3 class="display-3">Case Tracker</h3>
+        <p class="lede" style="margin-top:.75rem;font-size:.9rem;">Enter your case reference from this page, or an official complaint/acknowledgement number.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem;">
+          <input type="text" id="trackInput" placeholder="Case or acknowledgement ID" style="flex:1 1 12rem;padding:.8rem 1rem;border-radius:.875rem;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);">
+          <button id="trackBtn" class="btn btn-primary">Check Status</button>
+        </div>
+        <div class="result-box" id="trackResult" style="margin-top:1rem;">Enter your case reference or an official complaint number.</div>
+      </div>
+      <div>
+        <h3 class="display-3">What usually happens next</h3>
+        <ol style="margin-top:1.25rem;display:flex;flex-direction:column;gap:1rem;counter-reset:step;">
+          <li style="display:flex;gap:1rem;"><span class="icon-circle" style="width:2.25rem;height:2.25rem;font-size:.8rem;flex-shrink:0;">1</span><span class="lede" style="font-size:.9rem;">Save evidence before blocking or deleting messages.</span></li>
+          <li style="display:flex;gap:1rem;"><span class="icon-circle" style="width:2.25rem;height:2.25rem;font-size:.8rem;flex-shrink:0;">2</span><span class="lede" style="font-size:.9rem;">Submit the complaint through the official NCCIA/FIA portal or office.</span></li>
+          <li style="display:flex;gap:1rem;"><span class="icon-circle" style="width:2.25rem;height:2.25rem;font-size:.8rem;flex-shrink:0;">3</span><span class="lede" style="font-size:.9rem;">Keep the acknowledgement number and any email or SMS replies.</span></li>
+          <li style="display:flex;gap:1rem;"><span class="icon-circle" style="width:2.25rem;height:2.25rem;font-size:.8rem;flex-shrink:0;">4</span><span class="lede" style="font-size:.9rem;">Follow up with the official office or helpline if there is no response.</span></li>
+          <li style="display:flex;gap:1rem;"><span class="icon-circle" style="width:2.25rem;height:2.25rem;font-size:.8rem;flex-shrink:0;">5</span><span class="lede" style="font-size:.9rem;">Update passwords, privacy settings, and trusted contacts.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HARASSMENT LIBRARY ============ -->
+<section class="section" id="library">
+  <div class="shell">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Content Library</div>
+    <h2 class="display-2" style="max-width:36rem;">Harassment Type Library</h2>
+    <p class="lede" style="margin-top:1rem;">Short, practical explainers for the incidents Pakistani students and families most often need to understand quickly.</p>
+    <div style="margin-top:2rem;" data-accordion>
+      
+<div class="acc-item open"><button class="acc-trigger"><span>Cyber Stalking</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    Repeated monitoring, unwanted messages, threats, or tracking across accounts.
+    <ul><li>Save usernames, links, timestamps, and screenshots.</li><li>Record repeated contact patterns before blocking.</li><li>PECA may treat repeated online surveillance or unwanted contact as cyber stalking.</li></ul>
+  </div></div>
+</div>
+<div class="acc-item"><button class="acc-trigger"><span>Doxing</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    Sharing private phone numbers, addresses, photos, or family details to intimidate someone.
+    <ul><li>Capture the public post, comments, and share links.</li><li>Ask trusted people not to engage with the post.</li><li>Report to the platform and official channels if safety is at risk.</li></ul>
+  </div></div>
+</div>
+<div class="acc-item"><button class="acc-trigger"><span>Sextortion</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    Threatening to share private or intimate content to force money, silence, or more content.
+    <ul><li>Do not pay or send more material.</li><li>Save threats, payment demands, accounts, and phone numbers.</li><li>Use official complaint channels and contact a trusted person immediately.</li></ul>
+  </div></div>
+</div>
+<div class="acc-item"><button class="acc-trigger"><span>Impersonation</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    Fake accounts using someone’s name, photos, school, workplace, or identity details.
+    <ul><li>Copy the profile URL and screenshot the profile and messages.</li><li>Report the fake account inside the platform.</li><li>Identity misuse can be relevant under PECA provisions on identity information.</li></ul>
+  </div></div>
+</div>
+<div class="acc-item"><button class="acc-trigger"><span>Hate Speech</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    Targeted abuse based on religion, gender, ethnicity, disability, or identity.
+    <ul><li>Save the original post and surrounding context.</li><li>Report content that incites harm or coordinated abuse.</li><li>Escalate urgent threats to police or official cybercrime channels.</li></ul>
+  </div></div>
+</div>
+<div class="acc-item"><button class="acc-trigger"><span>Disinformation</span><span class="plus"></span></button>
+  <div class="acc-panel"><div class="acc-panel-inner">
+    False claims, edited media, or smear posts designed to damage reputation.
+    <ul><li>Save the original post before it is deleted or edited.</li><li>Collect proof showing the claim is false.</li><li>Avoid public arguments that may spread the content further.</li></ul>
+  </div></div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 LEGAL RIGHTS + URDU ============ -->
+<section class="section section-surface" id="legal-rights">
+  <div class="shell">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Know Your Rights</div>
+    <h2 class="display-2" style="max-width:38rem;">Know your legal rights.</h2>
+    <p class="lede" style="margin-top:1rem;">
+      This is awareness information, not legal advice. Cyber laws can be amended, so verify details with
+      official sources, lawyers, or rights organizations before relying on specific penalties.
+    </p>
+    <div class="grid grid-2" style="margin-top:2.5rem;gap:2rem;">
+      <div class="card">
+        <h3 class="display-3">PECA 2016 in Simple Words</h3>
+        <p class="lede" style="margin-top:.75rem;font-size:.9rem;">
+          Pakistan’s Prevention of Electronic Crimes Act covers several electronic offences, including
+          misuse of identity information, privacy/modesty harms, cyber stalking, spoofing, and other
+          computer-related offences.
+        </p>
+        <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem;font-size:.88rem;color:var(--muted);">
+          <li>&bull; Relevant sections can depend on facts and evidence.</li>
+          <li>&bull; Punishments may include fines and imprisonment.</li>
+          <li>&bull; Serious threats, intimate-image abuse, minors, or physical danger need urgent support.</li>
+        </ul>
+        <h4 style="margin-top:1.5rem;font-size:.9rem;">Official references</h4>
+        <div style="display:flex;flex-direction:column;margin-top:.5rem;">
+          <a href="https://pcsw.punjab.gov.pk/prevention-of-electronic-crimes-act-2016" target="_blank" rel="noopener" style="font-size:.88rem;color:var(--accent);padding:.3rem 0;">PCSW PECA overview &rarr;</a>
+          <a href="https://www.pakistancode.gov.pk/pdffiles/administrator6a061efe0ed5bd153fa8b79b8eb4cba7.pdf" target="_blank" rel="noopener" style="font-size:.88rem;color:var(--accent);padding:.3rem 0;">Pakistan Code PECA PDF &rarr;</a>
+          <a href="https://complaint.nccia.gov.pk/" target="_blank" rel="noopener" style="font-size:.88rem;color:var(--accent);padding:.3rem 0;">NCCIA complaint portal &rarr;</a>
+        </div>
+        <div class="notice-box warn" style="margin-top:1.25rem;">
+          If someone is in immediate physical danger, contact local emergency services or a trusted
+          nearby adult first. This guide supports safety decisions &mdash; it should never delay urgent help.
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="display-3">Quick Safety Guide</h3>
+        <div style="margin-top:1.25rem;font-size:.92rem;line-height:1.75;color:var(--muted);">
+          Save screenshots, links, usernames, dates, and phone numbers. Do not delete chats before
+          documenting them. Change passwords, enable two-factor authentication, and report through
+          official channels when safe.
+        </div>
+        <div class="hint" style="margin-top:1rem;">
+          Prefer Urdu, Sindhi, Punjabi, Pashto, or another language? Set your preferred language in
+          <strong>Settings ⚙️</strong> — the Chatbot will reply in it directly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 EVIDENCE CHECKLIST ============ -->
+<section class="section" id="evidence-tool">
+  <div class="shell">
+    <div class="tool-grid">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Checklist Generator</div>
+        <h2 class="display-2">Evidence Checklist</h2>
+        <p class="lede" style="margin-top:1rem;">Select the harassment type to create a focused evidence-saving list for that specific situation.</p>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label for="checklistType">Case type</label>
+          <select id="checklistType">
+            <option value="stalking">Cyber stalking</option>
+            <option value="blackmail">Blackmail or sextortion</option>
+            <option value="fake">Fake account or impersonation</option>
+            <option value="doxing">Doxing or privacy leak</option>
+            <option value="bullying">Online bullying or threats</option>
+          </select>
+        </div>
+        <button id="checklistBtn" class="btn btn-primary" style="margin-top:1rem;">Build Checklist</button>
+        <div class="result-box" id="checklistResult" style="margin-top:1.25rem;">Your evidence checklist will appear here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 SECURITY QUIZ ============ -->
+<section class="section section-surface" id="security-tools">
+  <div class="shell">
+    <div class="tool-grid">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Security Audit</div>
+        <h2 class="display-2">Password &amp; Safety Quiz</h2>
+        <p class="lede" style="margin-top:1rem;">A quick tool for account hygiene. No password is sent anywhere &mdash; everything runs in your browser.</p>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label for="pwInput">Practise with an example password</label>
+          <input type="password" id="pwInput" placeholder="Type an EXAMPLE, not your real password" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="result-box" id="pwResult" style="margin-top:1rem;">Feedback appears here. Nothing you type is saved or sent. Never enter a password you really use.</div>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.6rem;">
+          <label class="field-check"><input type="checkbox" class="quiz-check"> I use two-factor authentication on important accounts.</label>
+          <label class="field-check"><input type="checkbox" class="quiz-check"> My email, Instagram, and banking passwords are different.</label>
+          <label class="field-check"><input type="checkbox" class="quiz-check"> I reviewed privacy settings and who can message or tag me.</label>
+          <label class="field-check"><input type="checkbox" class="quiz-check"> My recovery email and phone number are current and safe.</label>
+        </div>
+        <div class="result-box" id="quizResult" style="margin-top:1rem;">Security audit score will appear here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 COMPLAINT LETTER ============ -->
+<section class="section" id="letter-tool">
+  <div class="shell">
+    <div class="tool-grid">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Template Generator</div>
+        <h2 class="display-2">Complaint Letter Template</h2>
+        <p class="lede" style="margin-top:1rem;">Generate a structured letter you can review, correct, and attach to an official complaint.</p>
+      </div>
+      <div class="card">
+        <div class="grid grid-2" style="gap:1rem;">
+          <div class="field"><label for="ltName">Name</label><input type="text" id="ltName"></div>
+          <div class="field"><label for="ltCity">City</label><input type="text" id="ltCity"></div>
+          <div class="field"><label for="ltType">Incident type</label><input type="text" id="ltType" placeholder="e.g. Impersonation"></div>
+          <div class="field"><label for="ltPlatform">Platform</label><input type="text" id="ltPlatform"></div>
+          <div class="field"><label for="ltAccount">Account / number involved</label><input type="text" id="ltAccount"></div>
+          <div class="field"><label for="ltDate">Incident date</label><input type="date" id="ltDate"></div>
+        </div>
+        <div class="field" style="margin-top:1rem;"><label for="ltSummary">Summary</label><textarea id="ltSummary" rows="3"></textarea></div>
+        <div class="field" style="margin-top:1rem;"><label for="ltEvidence">Evidence list</label><textarea id="ltEvidence" rows="2" placeholder="Screenshots, links, dates…"></textarea></div>
+        <div style="display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap;">
+          <button id="ltGenBtn" class="btn btn-primary">Generate Letter</button>
+          <button id="ltDownloadBtn" class="btn btn-outline">Download Letter</button>
+          <button id="ltSendBtn" class="btn btn-outline" data-track-form>Save to Support Team</button>
+        </div>
+        <div class="result-box" id="ltResult" style="margin-top:1.25rem;">Your complaint letter preview will appear here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 COMMUNITY ============ -->
+<section class="section section-surface" id="community">
+  <div class="shell">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Community Features</div>
+    <h2 class="display-2" style="max-width:34rem;">Stories &amp; Campus Ambassadors</h2>
+    <div class="grid grid-2" style="margin-top:2.5rem;gap:2rem;">
+      <div class="card">
+        <span class="tag-pill">Anonymous Story</span>
+        <h3 style="margin-top:1rem;font-size:1.1rem;">&ldquo;I told one trusted friend first.&rdquo;</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.88rem;">A student saved screenshots, locked her profile, and asked a trusted classmate to stay with her while she reported the account.</p>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Anonymous Story</span>
+        <h3 style="margin-top:1rem;font-size:1.1rem;">&ldquo;The fake account came down.&rdquo;</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.88rem;">After collecting links and profile screenshots, the victim filed platform reports and kept the official complaint number for follow-up.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:2rem;gap:2rem;">
+      <div class="card" data-track-form>
+        <h3 class="display-3" style="font-size:1.15rem;">Share an Anonymous Story</h3>
+        <p class="lede" style="margin-top:.4rem;font-size:.85rem;">Sent to the Cyber Hayat team for possible anonymous publishing &mdash; never shown publicly automatically.</p>
+        <div class="field" style="margin-top:1rem;"><label for="storyTheme">Theme</label><input type="text" id="storyTheme" placeholder="e.g. Reporting, recovery, support"></div>
+        <div class="field" style="margin-top:.75rem;"><label for="storyOutcome">Outcome</label><input type="text" id="storyOutcome"></div>
+        <div class="field" style="margin-top:.75rem;"><label for="storyDraft">Your story</label><textarea id="storyDraft" rows="3"></textarea></div>
+        <button id="storyBtn" class="btn btn-primary" style="margin-top:1rem;">Send Story</button>
+        <div class="result-box" id="storyResult" style="margin-top:1rem;">Your story will be sent to our team once submitted.</div>
+      </div>
+      <div class="card" data-track-form>
+        <h3 class="display-3" style="font-size:1.15rem;">Campus Ambassador Signup</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.85rem;">For workshops, awareness booths, hostel sessions, and reporting guidance circles.</p>
+        <div class="grid grid-2" style="margin-top:1rem;gap:.75rem;">
+          <div class="field"><label for="ambName">Name</label><input type="text" id="ambName"></div>
+          <div class="field"><label for="ambUni">University / college</label><input type="text" id="ambUni"></div>
+          <div class="field"><label for="ambCity">City</label><input type="text" id="ambCity"></div>
+          <div class="field"><label for="ambContact">WhatsApp / phone</label><input type="text" id="ambContact" placeholder="For coordination"></div>
+        </div>
+        <div class="field" style="margin-top:.75rem;"><label for="ambWhy">Why do you want to join?</label><textarea id="ambWhy" rows="2"></textarea></div>
+        <button id="ambBtn" class="btn btn-primary" style="margin-top:1rem;">Apply as Ambassador</button>
+        <div class="result-box" id="ambResult" style="margin-top:1rem;">Your application will be sent to our team once submitted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 PRESS / PARTNERS / WHATSAPP ============ -->
+<section class="section" id="trust">
+  <div class="shell">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Outreach &amp; Trust</div>
+    <h2 class="display-2" style="max-width:32rem;">Press, Partners &amp; WhatsApp Community</h2>
+    <div class="grid grid-3" style="margin-top:2.5rem;">
+      <div class="card">
+        <span class="tag-pill">Press Coverage</span>
+        <h3 style="margin-top:1rem;font-size:1.05rem;">Media Section</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.85rem;">Slot reserved for verified interviews, university features, podcast links, or news articles.</p>
+      </div>
+      <div class="card">
+        <span class="tag-pill">Partners</span>
+        <h3 style="margin-top:1rem;font-size:1.05rem;">Verified Partner Slots</h3>
+        <ul style="margin-top:.5rem;font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;gap:.3rem;">
+          <li>&bull; University societies</li>
+          <li>&bull; Legal aid volunteers</li>
+          <li>&bull; Digital safety NGOs</li>
+          <li>&bull; Campus counseling teams</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag-pill">WhatsApp</span>
+        <h3 style="margin-top:1rem;font-size:1.05rem;">Join Our WhatsApp Channel</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.85rem;">Stay updated on cyber safety awareness, new threats, and community resources.</p>
+        <a href="https://whatsapp.com/channel/0029Vb8nyrC4o7qUW8L3h23G" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:1rem;">Join WhatsApp Channel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-brand">
+          <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+          Cyber Hayat
+        </a>
+        <p style="max-width:22rem;color:rgba(255,255,255,.55);font-size:.9rem;margin-top:1rem;line-height:1.6;" data-i18n="footer.tagline">
+          A student-led cyber safety initiative from the University of Central Punjab, helping people
+          recognize cyber harassment, protect evidence, and reach the right support channels in Pakistan.
+        </p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 data-i18n="footer.platform">Platform</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="guide.html" data-i18n="nav.guide">Guide</a>
+          <a href="chatbot.html" data-i18n="nav.chatbot">Chatbot</a>
+          <a href="resources.html" data-i18n="nav.resources">Resources</a>
+          <a href="toolkit.html">Toolkit</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.organization">Organization</h4>
+          <a href="helplines.html" data-i18n="nav.helplines">Helplines</a>
+          <a href="resources.html#legal-rights" data-i18n="footer.legalRights">Legal Rights</a>
+          <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.urgent">Urgent</h4>
+          <a href="tel:1043">PCSW &middot; 1043</a>
+          <a href="tel:1799">NCCIA &middot; 1799</a>
+          <a href="tel:9911">FIA &middot; 9911</a>
+          <a href="tel:080039393">DRF &middot; 0800-39393</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">&copy; 2026 Cyber Hayat PK &middot; Students of University of Central Punjab. Stay safe. Protect yourself.</p>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+        <a href="privacy.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.terms">Terms of Use</a>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb8nyrC4o7qUW8L3h23G" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.03-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/submit.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/resources.js"></script>
+
+<script src="assets/js/fmt.js"></script>
+<script src="assets/js/exit.js"></script>
+<script src="assets/js/listen.js"></script>
+<script src="assets/js/motion.js"></script>
+</body>
+</html>

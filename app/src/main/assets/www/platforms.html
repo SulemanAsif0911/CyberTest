@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Platform guides | Cyber Hayat PK</title>
+<meta name="description" content="Step-by-step guides to report harassment, impersonation and intimate images on Instagram, Facebook, WhatsApp, Snapchat, TikTok, X, YouTube and Telegram." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="assets/img/logo.png" type="image/png" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/tools.css">
+<script src="assets/js/native.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+      <span>Cyber Hayat<span class="tag">Respect &middot; Support &middot; Empower</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+            <li><a href="index.html" data-nav-link data-i18n="nav.home" class="">Home</a></li>
+            <li><a href="guide.html" data-nav-link data-i18n="nav.guide" class="">Guide</a></li>
+            <li><a href="chatbot.html" data-nav-link data-i18n="nav.chatbot" class="">Chatbot</a></li>
+            <li><a href="resources.html" data-nav-link data-i18n="nav.resources" class="">Resources</a></li>
+            <li><a href="helplines.html" data-nav-link data-i18n="nav.helplines" class="">Helplines</a></li>
+            <li><a href="toolkit.html" data-nav-link class="is-active">Toolkit</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-cta">
+      <a href="helplines.html" class="btn btn-outline btn-sm" data-i18n="cta.helplines">Helplines</a>
+      <a href="chatbot.html" class="btn btn-accent btn-sm" data-i18n="cta.getHelp">Get Help Now</a>
+    </div>
+    <button class="qx-btn" id="quickExit" type="button" aria-label="Quick exit: leave the app right now" title="Quick exit">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Exit</span>
+    </button>
+    <button class="settings-toggle" data-settings-toggle aria-label="Open settings">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV MENU ============ -->
+<div id="navMenu">
+  <div class="navmenu-top">
+    <a href="index.html" class="navmenu-brand"><img src="assets/img/logo.png" alt="Cyber Hayat" /> Cyber Hayat</a>
+    <button id="navMenuClose" class="navmenu-close" aria-label="Close menu">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navmenu-nav">
+    <div class="shell">
+      <ul>
+              <li><a href="index.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">01</span><span class="navmenu-item-label" data-i18n="nav.home">Home</span></a></li>
+              <li><a href="guide.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">02</span><span class="navmenu-item-label" data-i18n="nav.guide">Guide</span></a></li>
+              <li><a href="chatbot.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">03</span><span class="navmenu-item-label" data-i18n="nav.chatbot">Chatbot</span></a></li>
+              <li><a href="resources.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">04</span><span class="navmenu-item-label" data-i18n="nav.resources">Resources</span></a></li>
+              <li><a href="helplines.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">05</span><span class="navmenu-item-label" data-i18n="nav.helplines">Helplines</span></a></li>
+              <li><a href="toolkit.html" data-nav-link class="navmenu-item is-active"><span class="navmenu-item-index">06</span><span class="navmenu-item-label">Toolkit</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="navmenu-bottom">
+    <a href="chatbot.html" class="btn btn-accent" data-i18n="cta.getHelp">Get Help Now</a>
+    <a href="helplines.html" class="btn btn-ghost-dark" data-i18n="cta.helplines">View Helplines</a>
+    <button class="btn btn-ghost-dark" data-settings-toggle>Settings ⚙️</button>
+  </div>
+</div>
+
+<main id="main">
+<section class="page-hero tk-hero">
+  <div class="shell">
+    <nav class="page-hero-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="toolkit.html">Toolkit</a><span aria-hidden="true">/</span><span>Platform guides</span></nav>
+    <div class="eyebrow"><span class="eyebrow-dot"></span><span>Platform guides</span></div>
+    <h1 class="display-2">How to report, block and remove content.</h1>
+    <p class="lede tk-lead">Step-by-step reporting for the apps people use most, plus ready-to-paste messages. Save your evidence first, then report.</p>
+  </div>
+</section>
+<section class="tk-wrap"><div class="shell">
+  <div class="callout warn" role="note"><span><svg class="svg-icon stroke" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>Save evidence before you block or report</strong>Blocking or reporting can hide the account or the content from you. Use <a href="vault.html">the evidence vault</a> first.</div></div>
+  <div class="tk-h" style="margin-top:1.4rem"><h2>Choose an app</h2><p>Tap an app to see how to report content, impersonation and intimate images, and how to lock down your account.</p></div>
+  <details class="plat"><summary><span class="plat-ic" style="background:#c13584;color:#fff">In</span>Instagram</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the profile, tap the ⋯ menu, then <b>Report</b>.</li><li>Choose the closest reason, for example <b>Pretending to be someone</b> or <b>Harassment or bullying</b>.</li><li>Follow the prompts and submit. You can also report an individual message by pressing and holding it.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Open the profile, tap ⋯, choose <b>Report → Pretending to be someone</b>, then say who it is pretending to be.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the photo or message and choose the option for nudity or sexual content shared without consent, or for blackmail.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Profile ⋯ → <b>Block</b>. In Settings, set your account to <b>Private</b> and limit who can message or tag you.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://help.instagram.com" target="_blank" rel="noopener">Open Instagram Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#1877f2;color:#fff">Fa</span>Facebook</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the profile or post, tap ⋯ (or the three dots), then <b>Find support or report profile</b>.</li><li>Choose the reason that fits, such as <b>Pretending to be someone</b> or <b>Harassment</b>.</li><li>Submit, and check your Support Inbox for updates.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Profile ⋯ → <b>Find support or report</b> → <b>Pretending to be someone</b>, then choose who is being impersonated.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the post, photo or video and choose the option about intimate images shared without permission.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Profile ⋯ → <b>Block</b>. In Settings → Privacy, limit who can see your posts and find you.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://www.facebook.com/help" target="_blank" rel="noopener">Open Facebook Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#25d366;color:#fff">Wh</span>WhatsApp</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the chat, tap ⋯ (or the contact name), then <b>Report</b>.</li><li>You can choose to include recent messages, then <b>Report and block</b>.</li><li>To report a single message, press and hold it and choose <b>Report</b>.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Report the number from the chat. Tell your contacts not to reply to it, and post a short notice on your real accounts.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Save evidence first (screenshots, number, dates), then report and block. Do not forward the images, even to prove a point.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Settings → Privacy: set <b>Profile photo</b>, <b>About</b> and <b>Last seen</b> to “My contacts”, and turn on two-step verification.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://faq.whatsapp.com" target="_blank" rel="noopener">Open WhatsApp Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#fffc00;color:#111">Sn</span>Snapchat</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Press and hold the Snap, Story or the person’s name, then tap <b>Report</b>.</li><li>Choose the reason, add a note if asked, and submit.</li><li>Block them from their profile (⋯ → <b>Block</b>) once you have saved the evidence.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Open their profile, tap ⋯ → <b>Report Account</b> and pick the impersonation option.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the Snap or Story and pick the option for nudity or sexual content or for threats and blackmail.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Settings → <b>Who Can…</b>: set Contact Me and View My Story to “My Friends”. Turn on Ghost Mode for the map.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://help.snapchat.com" target="_blank" rel="noopener">Open Snapchat Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#111111;color:#fff">Ti</span>TikTok</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the video or profile, tap <b>Share → Report</b> (or ⋯ → <b>Report</b>).</li><li>Choose the reason that fits, then submit.</li><li>For messages, press and hold the message, then <b>Report</b>.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Profile ⋯ → <b>Report</b> → <b>Pretending to be someone</b>.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the video and choose the option for nudity or sexual activity, or for harassment and bullying.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Settings → Privacy: set account to <b>Private</b>, limit comments, Duets and messages to friends.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://support.tiktok.com" target="_blank" rel="noopener">Open TikTok Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#14171a;color:#fff">X</span>X (Twitter)</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the post or profile, tap ⋯, then <b>Report</b>.</li><li>Choose <b>It’s abusive or harmful</b> or the closest reason, then follow the steps.</li><li>Mute or block the account after saving evidence.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Profile ⋯ → <b>Report</b> → <b>They’re pretending to be me or someone else</b>.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the post and choose the option about private media shared without consent.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Settings → Privacy and safety: protect your posts and limit who can reply and message you.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://help.x.com" target="_blank" rel="noopener">Open X (Twitter) Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#ff0000;color:#fff">YT</span>YouTube</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the video or channel. On a video, tap ⋯ → <b>Report</b>. On a channel, open the <b>About</b> tab, tap the flag icon, then <b>Report user</b>.</li><li>Pick the closest reason and submit.</li><li>For comments, tap ⋯ beside the comment, then <b>Report</b>.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Channel → About → flag icon → <b>Report user</b> → impersonation.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the video and use the options for harassment or sexual content. Use the privacy complaint process for videos that show you.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Studio → Settings: turn on comment moderation, hold potentially inappropriate comments, and add blocked words.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://support.google.com/youtube" target="_blank" rel="noopener">Open YouTube Help Centre ↗</a></p>
+</div></details>
+<details class="plat"><summary><span class="plat-ic" style="background:#229ed9;color:#fff">TG</span>Telegram</summary>
+<div class="plat-body">
+ <div><h4>Report a profile or content</h4><ol><li>Open the chat, tap the name at the top, then ⋯ → <b>Report</b>.</li><li>Choose the reason and submit. You can also report single messages by pressing and holding them.</li><li>Block the user from the same menu.</li></ol></div>
+ <div><h4>Someone pretending to be you</h4><ol><li>Report the account, and for groups or channels use ⋯ → <b>Report</b> as well.</li></ol></div>
+ <div><h4>Intimate images or blackmail</h4><ol><li>Report the message or channel and choose the pornography or illegal content reason.</li></ol></div>
+ <div><h4>Block and protect your account</h4><ol><li>Settings → Privacy and Security: set who can see your phone number, last seen and photo to “My Contacts”.</li></ol></div>
+ <p class="tk-muted">Menus change between app versions. If you can’t find an option, search the Help Centre for “report impersonation” or “report intimate images”. <a href="https://telegram.org/faq" target="_blank" rel="noopener">Open Telegram Help Centre ↗</a></p>
+</div></details>
+
+</div></section>
+<section class="tk-wrap"><div class="shell">
+  <div class="tk-h"><h2>Messages you can copy</h2><p>Replace the text in [BRACKETS], then paste into the platform’s report form. Keep it short and factual.</p></div>
+  <div class="tk-stack"><div class="tpl"><h4>Report an impersonating account</h4><small>Use in the platform’s impersonation form.</small><pre id="tpl0" dir="auto">Hello,
+The account [PROFILE LINK] is pretending to be me, [YOUR NAME]. It uses my photos and name without my permission and is contacting other people as me.
+Please review and remove it. I can provide identification through your official form if needed.
+Thank you.</pre><button type="button" class="act" data-copy="#tpl0"><svg class="svg-icon stroke" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy message</button></div><div class="tpl"><h4>Report blackmail or intimate images</h4><small>Use when someone threatens to share private content, or already did.</small><pre id="tpl1" dir="auto">Hello,
+The account [PROFILE LINK] is threatening to share private images of me unless I pay or send more content. This is blackmail and sharing intimate images without my consent.
+Please remove the content and suspend the account urgently, and preserve the account data for law enforcement.
+Thank you.</pre><button type="button" class="act" data-copy="#tpl1"><svg class="svg-icon stroke" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy message</button></div><div class="tpl"><h4>Report harassment</h4><small>Use for repeated abuse, hate or threats.</small><pre id="tpl2" dir="auto">Hello,
+The account [PROFILE LINK] has repeatedly sent me abusive and threatening messages since [DATE]. I have saved screenshots. Please review the messages, take action on the account, and keep the records available for an official complaint.
+Thank you.</pre><button type="button" class="act" data-copy="#tpl2"><svg class="svg-icon stroke" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy message</button></div><div class="tpl"><h4>Report a hacked account</h4><small>Use with the platform’s account recovery or support form.</small><pre id="tpl3" dir="auto">Hello,
+My account [USERNAME / EMAIL] was accessed without my permission on or around [DATE]. I can no longer sign in / my recovery details were changed. Please help me recover it and secure it.
+Thank you.</pre><button type="button" class="act" data-copy="#tpl3"><svg class="svg-icon stroke" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy message</button></div></div>
+  <div class="callout info" style="margin-top:1.2rem"><span><svg class="svg-icon stroke" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z"/><polyline points="9 12 11 14 15 10"/></svg></span><div><strong>Intimate images?</strong>Adults can use <a href="https://stopncii.org" target="_blank" rel="noopener">StopNCII.org</a>; under-18s can use <a href="https://takeitdown.ncmec.org" target="_blank" rel="noopener">Take It Down</a>. Both work from your phone and do not upload the image itself.</div></div>
+</div></section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-brand">
+          <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+          Cyber Hayat
+        </a>
+        <p style="max-width:22rem;color:rgba(255,255,255,.55);font-size:.9rem;margin-top:1rem;line-height:1.6;" data-i18n="footer.tagline">
+          A student-led cyber safety initiative from the University of Central Punjab, helping people
+          recognize cyber harassment, protect evidence, and reach the right support channels in Pakistan.
+        </p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 data-i18n="footer.platform">Platform</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="guide.html" data-i18n="nav.guide">Guide</a>
+          <a href="chatbot.html" data-i18n="nav.chatbot">Chatbot</a>
+          <a href="resources.html" data-i18n="nav.resources">Resources</a>
+          <a href="toolkit.html">Toolkit</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.organization">Organization</h4>
+          <a href="helplines.html" data-i18n="nav.helplines">Helplines</a>
+          <a href="resources.html#legal-rights" data-i18n="footer.legalRights">Legal Rights</a>
+          <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.urgent">Urgent</h4>
+          <a href="tel:1043">PCSW &middot; 1043</a>
+          <a href="tel:1799">NCCIA &middot; 1799</a>
+          <a href="tel:9911">FIA &middot; 9911</a>
+          <a href="tel:080039393">DRF &middot; 0800-39393</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">&copy; 2026 Cyber Hayat PK &middot; Students of University of Central Punjab. Stay safe. Protect yourself.</p>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+        <a href="privacy.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.terms">Terms of Use</a>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb8nyrC4o7qUW8L3h23G" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.03-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/submit.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+<script src="assets/js/accordion.js"></script>
+
+
+<script src="assets/js/fmt.js"></script>
+<script src="assets/js/exit.js"></script>
+<script src="assets/js/listen.js"></script>
+<script src="assets/js/motion.js"></script>
+<script src="assets/js/platforms.js"></script>
+
+</body>
+</html>

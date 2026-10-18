@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy | Cyber Hayat PK</title>
+<meta name="description" content="How Cyber Hayat PK handles your data: local-only storage, offline-first storage, an AI assistant and Google Sheets sync, and how your information is safeguarded." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="assets/img/logo.png" type="image/png" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/tools.css">
+<script src="assets/js/native.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+      <span>Cyber Hayat<span class="tag">Respect &middot; Support &middot; Empower</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+            <li><a href="index.html" data-nav-link data-i18n="nav.home" class="">Home</a></li>
+            <li><a href="guide.html" data-nav-link data-i18n="nav.guide" class="">Guide</a></li>
+            <li><a href="chatbot.html" data-nav-link data-i18n="nav.chatbot" class="">Chatbot</a></li>
+            <li><a href="resources.html" data-nav-link data-i18n="nav.resources" class="">Resources</a></li>
+            <li><a href="helplines.html" data-nav-link data-i18n="nav.helplines" class="">Helplines</a></li>
+            <li><a href="toolkit.html" data-nav-link class="">Toolkit</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-cta">
+      <a href="helplines.html" class="btn btn-outline btn-sm" data-i18n="cta.helplines">Helplines</a>
+      <a href="chatbot.html" class="btn btn-accent btn-sm" data-i18n="cta.getHelp">Get Help Now</a>
+    </div>
+    <button class="qx-btn" id="quickExit" type="button" aria-label="Quick exit: leave the app right now" title="Quick exit">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>Exit</span>
+    </button>
+    <button class="settings-toggle" data-settings-toggle aria-label="Open settings">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV MENU ============ -->
+<div id="navMenu">
+  <div class="navmenu-top">
+    <a href="index.html" class="navmenu-brand"><img src="assets/img/logo.png" alt="Cyber Hayat" /> Cyber Hayat</a>
+    <button id="navMenuClose" class="navmenu-close" aria-label="Close menu">
+      <svg class="svg-icon stroke" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="navmenu-nav">
+    <div class="shell">
+      <ul>
+              <li><a href="index.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">01</span><span class="navmenu-item-label" data-i18n="nav.home">Home</span></a></li>
+              <li><a href="guide.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">02</span><span class="navmenu-item-label" data-i18n="nav.guide">Guide</span></a></li>
+              <li><a href="chatbot.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">03</span><span class="navmenu-item-label" data-i18n="nav.chatbot">Chatbot</span></a></li>
+              <li><a href="resources.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">04</span><span class="navmenu-item-label" data-i18n="nav.resources">Resources</span></a></li>
+              <li><a href="helplines.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">05</span><span class="navmenu-item-label" data-i18n="nav.helplines">Helplines</span></a></li>
+              <li><a href="toolkit.html" data-nav-link class="navmenu-item"><span class="navmenu-item-index">06</span><span class="navmenu-item-label">Toolkit</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="navmenu-bottom">
+    <a href="chatbot.html" class="btn btn-accent" data-i18n="cta.getHelp">Get Help Now</a>
+    <a href="helplines.html" class="btn btn-ghost-dark" data-i18n="cta.helplines">View Helplines</a>
+    <button class="btn btn-ghost-dark" data-settings-toggle>Settings ⚙️</button>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero" style="background-image:url('assets/img/bg-texture.jpg')">
+  <div class="shell">
+    <div class="page-hero-breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Privacy Policy</span></div>
+    <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="hero.privacy.eyebrow">Your Data</span></div>
+    <h1 class="display-1" style="max-width:34rem;" data-i18n="hero.privacy.title">Privacy Policy</h1>
+    <p class="lede" style="margin-top:1.25rem;color:rgba(255,255,255,.62);max-width:36rem;">
+      Cyber Hayat is built to help you safely, without adding to your risk. This page explains, in plain
+      language, what happens to your information when you use this site.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="section">
+  <div class="shell" style="max-width:52rem;">
+
+    <div class="card" style="margin-bottom:2rem;">
+      <h2 class="display-3" style="font-size:1.2rem;">Our commitment</h2>
+      <p class="lede" style="margin-top:.75rem;font-size:.95rem;">
+        You can use everything in Cyber Hayat anonymously. No email, account or consent is needed to read guidance,
+        use the assistant, save evidence checklists or call a helpline. Data only leaves your device if you choose to
+        send it, and this page lists exactly what happens when you do.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <div>
+        <h3 style="font-size:1.05rem;">1. What stays on your device</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          Your language, chat history, saved incident drafts, case references and any items waiting to be sent are stored in this app’s local storage. This storage is <strong>not encrypted</strong>: anyone who can unlock your phone and open the app could read it. Use a phone screen lock and, if offered, the app lock and screenshot protection in Settings. You can delete it any time from Settings (this removes data on your device only).
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">2. What is sent, and only if you choose</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          When you submit an incident report, complaint letter, story or ambassador application, the app asks once whether to also send it to the Cyber Hayat support team. If you choose "Keep on this device", nothing is sent. If you choose to send, the content is added to a private Google Sheet run by the team so a real person can follow up and, where appropriate, help connect you with official authorities such as FIA or NCCIA. You can change this at any time in Settings.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">3. Chat conversations</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          Chats with the assistant are <strong>not uploaded by default</strong>. If you turn on "Back up my chat transcripts" in Settings, each exchange is saved to the support team’s Google Sheet together with a random conversation ID (no email is attached). Messages that mention immediate danger or self-harm may be flagged so the team can prioritise a follow-up. Turn the setting off and nothing further is uploaded.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">4. AI assistant and third parties</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          When you are online, the text of your chat messages is sent through the Cyber Hayat backend (Google Apps Script) to a hosted Llama language model through the OpenRouter service to write a reply. That happens whether or not you back up transcripts, and the provider’s own privacy terms apply to it. Please do not include your full name, address or ID numbers in chats. When you are offline, replies come from guidance built into the app and nothing is sent. Reports you choose to send are stored in Google Sheets, a Google service.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">5. Email</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          Giving an email is optional. We only email you if you entered an address and ticked "Email me confirmations". Confirmation emails are limited per address per day. We never email you just because you opened a chat.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">6. Reference numbers and lookups</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          Your case reference is created on your device. The "track by reference" tool only searches your device. It cannot see the support team’s records. If you sent a report and contact the team with your reference, they can look it up.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">7. Who can access sent records</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          Only the Cyber Hayat team members who manage the support Sheet and its email account. Records are not published or sold, and are not shared with anyone else except where you ask us to connect you with official authorities or where the law requires it.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">8. Deleting your data</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          <strong>On your device:</strong> Settings &rarr; Delete chat history or Delete all local data. <strong>Records the team holds:</strong> Settings &rarr; Send deletion request (with your case reference or the email you used), or contact the team with the same details. The team removes matching records from the Sheet. Deleting data on your device does not delete records already sent.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">9. Password checker</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          The password strength tester runs entirely on your device and nothing you type is stored or sent. It is only a rough guide, so please use an example and never type a password you really use.
+        </p>
+      </div>
+            <div>
+        <h3 style="font-size:1.05rem;">10. Toolkit features</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          <strong>Evidence vault:</strong> files, notes and links are encrypted on your device with a passphrase only you know and are never uploaded. If you forget the passphrase they cannot be recovered. The printable summary is created on your device.
+          <strong>Guided plan, safety plan, learn and checker:</strong> your answers, trusted contacts and progress stay on your device. The one-tap alert opens your own SMS, WhatsApp or phone app; Cyber Hayat does not see the message or the numbers.
+          <strong>Audio:</strong> the Listen button uses your phone’s own text-to-speech.
+          <strong>Helpline directory:</strong> when online, the app may download the latest list of numbers from the team’s Sheet. This request contains no personal information.
+          <strong>Campus events:</strong> if you register an event and choose to send it, your name, contact details and event details are stored in the team’s Sheet.
+          <strong>Device protection:</strong> screenshot blocking, app lock and the disguised icon are settings on your phone and send nothing anywhere.
+          <strong>Quick exit</strong> closes the app immediately and locks the vault. It does not delete your data.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;">11. Changes to this policy</h3>
+        <p class="lede" style="margin-top:.5rem;font-size:.9rem;">
+          If how we handle data changes, this page will be updated first with a plain explanation of what is different.
+        </p>
+      </div>
+    </div>
+    <div class="notice-box" style="margin-top:2.5rem;">
+      Questions about your data? Reach out through the <a href="helplines.html" style="color:var(--accent);font-weight:600;">Helplines page</a>
+      or our <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">Instagram</a>.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-brand">
+          <img src="assets/img/logo.png" alt="Cyber Hayat shield logo" />
+          Cyber Hayat
+        </a>
+        <p style="max-width:22rem;color:rgba(255,255,255,.55);font-size:.9rem;margin-top:1rem;line-height:1.6;" data-i18n="footer.tagline">
+          A student-led cyber safety initiative from the University of Central Punjab, helping people
+          recognize cyber harassment, protect evidence, and reach the right support channels in Pakistan.
+        </p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 data-i18n="footer.platform">Platform</h4>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="guide.html" data-i18n="nav.guide">Guide</a>
+          <a href="chatbot.html" data-i18n="nav.chatbot">Chatbot</a>
+          <a href="resources.html" data-i18n="nav.resources">Resources</a>
+          <a href="toolkit.html">Toolkit</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.organization">Organization</h4>
+          <a href="helplines.html" data-i18n="nav.helplines">Helplines</a>
+          <a href="resources.html#legal-rights" data-i18n="footer.legalRights">Legal Rights</a>
+          <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.urgent">Urgent</h4>
+          <a href="tel:1043">PCSW &middot; 1043</a>
+          <a href="tel:1799">NCCIA &middot; 1799</a>
+          <a href="tel:9911">FIA &middot; 9911</a>
+          <a href="tel:080039393">DRF &middot; 0800-39393</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">&copy; 2026 Cyber Hayat PK &middot; Students of University of Central Punjab. Stay safe. Protect yourself.</p>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+        <a href="privacy.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" style="color:rgba(255,255,255,.55);" data-i18n="footer.terms">Terms of Use</a>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/cyberhayaatpk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb8nyrC4o7qUW8L3h23G" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.03-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <svg class="svg-icon stroke" viewBox="0 0 24 24" width="18" height="18"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/submit.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/fmt.js"></script>
+<script src="assets/js/exit.js"></script>
+<script src="assets/js/listen.js"></script>
+<script src="assets/js/motion.js"></script>
+</body>
+</html>

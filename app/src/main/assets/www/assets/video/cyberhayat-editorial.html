@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberHayatPK – Cyber Harassment Awareness</title>
+<meta name="theme-color" content="#ffffff" />
+<style>
+:root{
+  --background:#ffffff; --foreground:#111111; --ink:#0a0a0a;
+  --muted:#8d8d8d; --subtle:#b6b6b6; --line:#e6e5e2;
+  --surface:#f1f0ee; --surface-2:#e3e2df;
+  --accent:#c23b3b; --accent-from:#e2645a; --accent-to:#7a1f1f;
+  --radius-pill:9999px; --radius-card:2rem; --radius-card-sm:1.25rem; --radius-control:0.875rem;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  width:100%; height:100%;
+  background:var(--background);
+  color:var(--foreground);
+  overflow:hidden;
+  font-family: sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+@media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+.svg-icon{ width:1em; height:1em; display:inline-block; }
+.svg-icon.stroke{ fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ── PROGRESS BAR ── */
+#progressTrack{
+  position:fixed; bottom:0; left:0; right:0; height:2px;
+  background:var(--line);
+  z-index:10;
+}
+#progressBar {
+  position:fixed; bottom:0; left:0; height:2px;
+  background:linear-gradient(90deg,var(--accent-from),var(--accent-to));
+  z-index:11; transition:width 0.4s linear;
+  width:0%;
+}
+
+/* ── SLIDE COUNTER ──
+   Always rendered as a solid dark chip so it stays legible whether the
+   scene behind it is the light page background or a dark scene-panel. */
+#slideNum {
+  position:fixed; bottom:22px; right:22px;
+  font-size:.72rem; font-weight:600; letter-spacing:.05em;
+  color:rgba(255,255,255,.85);
+  font-variant-numeric:tabular-nums;
+  background:rgba(10,10,10,.78);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  padding:.4rem .75rem; border-radius:var(--radius-pill);
+  box-shadow:0 0 0 1px rgba(255,255,255,.1);
+  z-index:15;
+}
+
+/* ── SCENES ── */
+.scene {
+  position:fixed; inset:0;
+  display:none;
+  align-items:center; justify-content:center;
+  flex-direction:column;
+  z-index:2;
+  padding: 4rem 6vw;
+}
+.scene.active {
+  display:flex;
+  animation: sceneFadeIn .5s ease forwards;
+}
+@keyframes sceneFadeIn { from{ opacity:0; } to{ opacity:1; } }
+
+/* Dark panel treatment (title / danger threats / stats / outro) */
+.scene-panel{
+  position:relative; isolation:isolate; overflow:hidden;
+  width:100%; max-width:60rem;
+  border-radius:var(--radius-card);
+  background:var(--ink); color:#fff;
+  padding: clamp(2.5rem,6vw,5rem) clamp(1.75rem,6vw,4.5rem);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06);
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center;
+}
+.panel-watermark{
+  position:absolute; inset-inline:0; bottom:-1.25rem; z-index:0; text-align:center; pointer-events:none; user-select:none;
+  font-weight:700; line-height:1; font-size:9rem; color:rgba(255,255,255,.05);
+}
+.panel-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
+
+/* ── EYEBROW LABEL ── */
+.scene-label{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.75rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+  color:rgba(17,17,17,.45);
+  margin-bottom:1.25rem;
+}
+.scene-panel .scene-label{ color:rgba(255,255,255,.55); }
+.eyebrow-dot{ width:.375rem; height:.375rem; border-radius:9999px; background:var(--accent); display:inline-block; flex-shrink:0; }
+
+/* ═══════════════════════════════
+   SCENE 1 – TITLE
+═══════════════════════════════ */
+.title-tag{ font-size:.8rem; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:1.25rem; opacity:0; animation: fadeIn .6s .3s ease forwards; }
+.main-title{
+  font-size:clamp(2.25rem,7vw,4.75rem); font-weight:600; letter-spacing:-.02em; line-height:1;
+  color:#fff; opacity:0; animation: fadeUp .8s .5s cubic-bezier(.16,1,.3,1) forwards;
+}
+.main-title span{ color:var(--accent-from); display:block; }
+.sub-title{
+  margin-top:1.25rem; font-size:clamp(1rem,2.2vw,1.375rem); font-weight:500; color:rgba(255,255,255,.65);
+  letter-spacing:-.005em; opacity:0; animation: fadeIn .8s 1.1s ease forwards;
+}
+.divider-line{
+  width:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  margin:1.75rem auto; animation: expandWidth .8s 1.4s ease forwards;
+}
+.tagline{
+  font-size:.8rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-from);
+  opacity:0; animation: fadeIn .8s 1.8s ease forwards;
+}
+
+/* ═══════════════════════════════
+   SCENE 2 – DEFINITION
+═══════════════════════════════ */
+.scene-heading{
+  font-size:clamp(1.875rem,4.5vw,3rem); font-weight:600; letter-spacing:-.02em; line-height:1.05;
+  text-align:center; color:var(--ink);
+  opacity:0; animation: fadeUp .7s .3s cubic-bezier(.16,1,.3,1) forwards;
+  margin-bottom:1.5rem;
+}
+.scene-panel .scene-heading{ color:#fff; }
+.scene-heading .hl{ color:var(--accent); }
+.scene-panel .scene-heading .hl{ color:var(--accent-from); }
+.def-box{ max-width:44rem; text-align:center; opacity:0; animation: fadeUp .7s .6s cubic-bezier(.16,1,.3,1) forwards; }
+.def-box p{ font-size:clamp(1rem,1.8vw,1.25rem); color:rgba(17,17,17,.6); line-height:1.7; font-weight:400; }
+.def-box p strong{ color:var(--accent); font-weight:600; }
+
+/* ═══════════════════════════════
+   SCENE 3–8 – THREAT SCENES
+═══════════════════════════════ */
+.threat-icon-wrap{
+  width:5.5rem; height:5.5rem; border-radius:9999px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--ink); color:#fff;
+  margin-bottom:1.75rem;
+  opacity:0; animation: popIn .6s .15s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.threat-icon-wrap .svg-icon{ font-size:2.25rem; }
+.scene-panel .threat-icon-wrap{
+  background:linear-gradient(135deg,var(--accent-from),var(--accent-to)); color:#fff;
+}
+.threat-name{
+  font-size:clamp(1.625rem,3.5vw,2.5rem); font-weight:600; letter-spacing:-.02em; color:var(--ink);
+  text-align:center; opacity:0; animation: fadeUp .6s .4s cubic-bezier(.16,1,.3,1) forwards; margin-bottom:1.25rem;
+}
+.scene-panel .threat-name{ color:#fff; }
+.threat-name.danger{ color:var(--accent); }
+.scene-panel .threat-name.danger{ color:var(--accent-from); }
+.threat-desc{
+  max-width:38rem; text-align:center; font-size:clamp(1rem,1.8vw,1.1875rem); color:rgba(17,17,17,.6); line-height:1.7;
+  opacity:0; animation: fadeUp .6s .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+.scene-panel .threat-desc{ color:rgba(255,255,255,.65); }
+.threat-desc strong{ color:var(--accent); font-weight:600; }
+.scene-panel .threat-desc strong{ color:var(--accent-from); }
+
+.protect-strip{
+  margin-top:1.75rem; padding:1rem 1.5rem; max-width:34rem; text-align:left;
+  border:1px solid var(--line); border-left:3px solid var(--accent);
+  background:var(--surface); border-radius:0 var(--radius-control) var(--radius-control) 0;
+  opacity:0; animation: fadeIn .6s .95s ease forwards;
+}
+.scene-panel .protect-strip{
+  border-color:rgba(255,255,255,.15); border-left-color:var(--accent-from);
+  background:rgba(255,255,255,.06);
+}
+.protect-strip .pt-label{
+  font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent);
+  margin-bottom:.4rem; display:flex; align-items:center; gap:.4rem;
+}
+.scene-panel .protect-strip .pt-label{ color:var(--accent-from); }
+.protect-strip p{ font-size:.875rem; color:rgba(17,17,17,.55); line-height:1.6; }
+.scene-panel .protect-strip p{ color:rgba(255,255,255,.6); }
+
+/* ═══════════════════════════════
+   SCENE 9 – STATS
+═══════════════════════════════ */
+.stats-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1rem,2vw,2rem);
+  width:100%; margin-top:2.5rem;
+}
+.stat-card{
+  border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04);
+  border-radius:var(--radius-control); padding:1.5rem 1rem; text-align:center;
+  opacity:0; transform:translateY(16px);
+}
+.stat-card:nth-child(1){ animation: fadeUp .6s .3s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-card:nth-child(2){ animation: fadeUp .6s .45s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-card:nth-child(3){ animation: fadeUp .6s .6s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-card:nth-child(4){ animation: fadeUp .6s .75s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-card:nth-child(5){ animation: fadeUp .6s .9s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-card:nth-child(6){ animation: fadeUp .6s 1.05s cubic-bezier(.16,1,.3,1) forwards; }
+.stat-num{ font-size:clamp(1.875rem,3.5vw,2.75rem); font-weight:600; letter-spacing:-.02em; color:#fff; display:block; }
+.stat-num.r{ color:var(--accent-from); }
+.stat-label{ margin-top:.5rem; font-size:.8rem; color:rgba(255,255,255,.5); line-height:1.5; text-transform:uppercase; letter-spacing:.03em; }
+
+/* ═══════════════════════════════
+   SCENE 10 – HOW TO PROTECT
+═══════════════════════════════ */
+.tips-list{ width:100%; max-width:40rem; margin-top:1rem; }
+.tip-row{ border-top:1px solid var(--line); }
+.tip-row:first-child{ border-top:none; }
+.tip-row-inner{ display:flex; align-items:center; gap:1.25rem; padding-block:1.25rem; }
+.tip-num{ width:2rem; font-size:.875rem; font-weight:500; color:rgba(17,17,17,.35); flex-shrink:0; }
+.tip-icon{ width:2.75rem; height:2.75rem; border-radius:9999px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.tip-icon .svg-icon{ font-size:1.125rem; }
+.tip-text{ text-align:left; }
+.tip-text h4{ font-size:1rem; font-weight:600; color:var(--ink); letter-spacing:-.005em; margin-bottom:.2rem; }
+.tip-text p{ font-size:.875rem; color:rgba(17,17,17,.55); line-height:1.5; max-width:26rem; }
+.tip-row{ opacity:0; transform:translateY(12px); }
+.tip-row:nth-child(1){ animation: fadeUp .5s .25s cubic-bezier(.16,1,.3,1) forwards; }
+.tip-row:nth-child(2){ animation: fadeUp .5s .4s cubic-bezier(.16,1,.3,1) forwards; }
+.tip-row:nth-child(3){ animation: fadeUp .5s .55s cubic-bezier(.16,1,.3,1) forwards; }
+.tip-row:nth-child(4){ animation: fadeUp .5s .7s cubic-bezier(.16,1,.3,1) forwards; }
+
+/* ═══════════════════════════════
+   SCENE 11 – OUTRO
+═══════════════════════════════ */
+.logo-circle{
+  width:9rem; height:9rem; border-radius:9999px;
+  background:var(--ink); border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 0 0 1px rgba(255,255,255,.05);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.4rem;
+  opacity:0; animation: logoReveal 1s .2s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.logo-shield{ font-size:2rem; color:var(--accent-from); }
+.outro-tagline{
+  margin-top:1.75rem; font-size:.9rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.55);
+  opacity:0; animation: fadeIn .8s 1.1s ease forwards;
+}
+.outro-tagline strong{ color:var(--accent-from); }
+.outro-website{
+  margin-top:.6rem; font-size:.8rem; letter-spacing:.08em; color:rgba(255,255,255,.35);
+  opacity:0; animation: fadeIn .8s 1.4s ease forwards;
+}
+
+/* ═══════════════════════════════
+   KEYFRAMES
+═══════════════════════════════ */
+@keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(20px); } to{ opacity:1; transform:translateY(0); } }
+@keyframes popIn{ from{ opacity:0; transform:scale(.7); } to{ opacity:1; transform:scale(1); } }
+@keyframes expandWidth{ from{ width:0; } to{ width:220px; } }
+@keyframes logoReveal{ from{ opacity:0; transform:scale(.7); } to{ opacity:1; transform:scale(1); } }
+
+/* ── PLAY OVERLAY (styled like a page loader) ── */
+#playBtn{
+  position:fixed; inset:0; z-index:20;
+  background:var(--ink); color:#fff;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.75rem;
+  cursor:pointer;
+}
+#playBtn .pb-circle{
+  width:5rem; height:5rem; border-radius:9999px; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
+#playBtn:hover .pb-circle{ transform:scale(1.06); }
+#playBtn .pb-triangle{
+  width:0; height:0; margin-left:5px;
+  border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:18px solid var(--ink);
+}
+#playBtn p{
+  font-size:.75rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.5);
+}
+
+/* ── CONTROLS ──
+   FIX: these used to flip to a translucent white pill on dark scenes,
+   which made them invisible against the plain (non-panel) page background.
+   They are now a single, always-solid dark chip — legible on every scene,
+   light or dark, with no state-dependent contrast flip. */
+#controls{
+  position:fixed; bottom:26px; left:50%; transform:translateX(-50%);
+  z-index:15; display:none; gap:.5rem;
+  padding:.4rem; border-radius:var(--radius-pill);
+  background:rgba(10,10,10,.78);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.1), 0 20px 45px -20px rgba(0,0,0,.6);
+}
+#controls button{
+  font:inherit; color:rgba(255,255,255,.92); cursor:pointer;
+  border:none; background:transparent;
+  border-radius:var(--radius-pill);
+  padding:.65rem 1.15rem; font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  display:flex; align-items:center; gap:.4rem;
+  transition:background .25s ease, color .25s ease;
+}
+#controls button:hover{ background:rgba(255,255,255,.14); }
+#controls button:focus-visible{ outline:2px solid var(--accent-from); outline-offset:2px; }
+#pauseBtn{ background:rgba(255,255,255,.95); color:var(--ink) !important; }
+#pauseBtn:hover{ background:#fff; }
+#restartBtn{ display:none; background:linear-gradient(135deg,var(--accent-from),var(--accent-to)); color:#fff; }
+
+/* ── BRAND CHIP ── */
+#brandChip{
+  position:fixed; top:20px; left:22px; z-index:15;
+  display:flex; align-items:center; gap:.45rem;
+  font-size:.72rem; font-weight:700; letter-spacing:.03em;
+  color:rgba(255,255,255,.9);
+  background:rgba(10,10,10,.78);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  padding:.4rem .8rem .4rem .55rem; border-radius:var(--radius-pill);
+  box-shadow:0 0 0 1px rgba(255,255,255,.1);
+}
+#brandChip img{ width:1.15rem; height:1.15rem; border-radius:50%; display:block; }
+#brandChip span.accent{ color:var(--accent-from); }
+
+/* ── fit-to-screen overrides (phones) ── */
+html,body{ height:100%; overflow:hidden; }
+.scene{ padding:4.25rem 5vw 5.5rem; overflow-y:auto; justify-content:flex-start; }
+.scene > *:first-child{ margin-top:auto; } .scene > *:last-child{ margin-bottom:auto; }
+@media (min-width:700px){ .scene{ padding:4rem 6vw 6rem; } }
+#controls{ bottom:max(.9rem, env(safe-area-inset-bottom)) !important; max-width:calc(100% - 1.5rem); }
+</style>
+</head>
+<body>
+
+<div id="progressTrack"></div>
+<div id="progressBar"></div>
+<div id="slideNum">01 / 11</div>
+<div id="brandChip"><img src="../img/logo.png" alt="" /> Cyber<span class="accent">Hayat</span></div>
+
+<!-- ══════════════ PLAY BUTTON ══════════════ -->
+<div id="playBtn">
+  <div class="pb-circle"><div class="pb-triangle"></div></div>
+  <p>Play Awareness Guide &middot; 11 Scenes &middot; ~70s</p>
+</div>
+
+<!-- ══════════════ SCENE 1: TITLE ══════════════ -->
+<div class="scene" id="s1">
+  <div class="scene-panel">
+    <div class="panel-watermark">SAFE</div>
+    <div class="panel-content">
+      <div class="title-tag">Awareness Campaign</div>
+      <div class="main-title">CYBER<span>HARASSMENT</span></div>
+      <div class="sub-title">The Hidden Digital Threat</div>
+      <div class="divider-line"></div>
+      <div class="tagline">Stay Safe · Protect Yourself · Speak Up</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 2: DEFINITION ══════════════ -->
+<div class="scene" id="s2">
+  <div class="scene-label"><span class="eyebrow-dot"></span>Defining the Threat</div>
+  <div class="scene-heading">What Is<br><span class="hl">Cyber Harassment?</span></div>
+  <div class="def-box">
+    <p>Cyber harassment is the use of <strong>digital technology</strong> to intimidate, threaten, humiliate, or harm another person. It occurs across social media, messaging apps, emails, and online platforms — affecting <strong>millions of people</strong> worldwide every day.</p>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 3: STALKING ══════════════ -->
+<div class="scene" id="s3">
+  <div class="threat-icon-wrap">
+    <svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M2 12C4 6 8 3 12 3s8 3 10 9c-2 6-6 9-10 9s-8-3-10-9Z"/><circle cx="12" cy="12" r="3"/></svg>
+  </div>
+  <div class="threat-name">Cyber Stalking</div>
+  <div class="threat-desc">Repeatedly monitoring someone's online activity, tracking their location, or sending persistent unwanted messages. <strong>Victims feel watched, unsafe, and violated</strong> — even in their own homes.</div>
+  <div class="protect-strip">
+    <div class="pt-label">Protect Yourself</div>
+    <p>Review your privacy settings. Never share real-time location publicly. Block and report any stalker accounts immediately.</p>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 4: ONLINE BULLYING ══════════════ -->
+<div class="scene" id="s4">
+  <div class="scene-panel">
+    <div class="panel-content">
+      <div class="threat-icon-wrap">
+        <svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 4V5Z"/></svg>
+      </div>
+      <div class="threat-name danger">Online Bullying</div>
+      <div class="threat-desc">Sending hateful messages, public humiliation, spreading rumors, or deliberately excluding someone. <strong>1 in 3 young people</strong> experience cyberbullying — leading to severe emotional and mental harm.</div>
+      <div class="protect-strip">
+        <div class="pt-label">Protect Yourself</div>
+        <p>Do not engage with bullies. Save all evidence. Report to platform administrators and trusted adults or authorities.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 5: HATE SPEECH ══════════════ -->
+<div class="scene" id="s5">
+  <div class="scene-panel">
+    <div class="panel-content">
+      <div class="threat-icon-wrap">
+        <svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M3 11v2a2 2 0 0 0 2 2h1l2 5 2-5h3l6 4V6l-6 4H8L6 8H5a2 2 0 0 0-2 2Z"/></svg>
+      </div>
+      <div class="threat-name danger">Hate Speech</div>
+      <div class="threat-desc">Online content that attacks individuals based on race, religion, gender, or identity. Hate speech <strong>incites violence</strong>, spreads fear, and creates toxic digital environments for entire communities.</div>
+      <div class="protect-strip">
+        <div class="pt-label">Protect Yourself</div>
+        <p>Report hateful content immediately. Mute or block offenders. Support affected communities. Never amplify hate by sharing it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 6: DOXING ══════════════ -->
+<div class="scene" id="s6">
+  <div class="threat-icon-wrap">
+    <svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.7 6 8.2 6 13 12 21 12 21s6-8 6-12.8C18 4.7 15.5 2 12 2Z"/><circle cx="12" cy="8.2" r="2.4"/></svg>
+  </div>
+  <div class="threat-name">Doxing</div>
+  <div class="threat-desc">Publicly exposing someone's private information — address, phone number, workplace — without consent. Doxing can lead to <strong>real-world danger</strong>, harassment campaigns, and physical threats.</div>
+  <div class="protect-strip">
+    <div class="pt-label">Protect Yourself</div>
+    <p>Limit personal info shared online. Use private email addresses. Regularly audit what information is publicly available about you.</p>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 7: IMPERSONATION ══════════════ -->
+<div class="scene" id="s7">
+  <div class="threat-icon-wrap">
+    <svg class="svg-icon stroke" viewBox="0 0 24 24"><rect x="3" y="3" width="12" height="12" rx="2.5"/><rect x="9" y="9" width="12" height="12" rx="2.5"/></svg>
+  </div>
+  <div class="threat-name">Impersonation</div>
+  <div class="threat-desc">Creating fake profiles or accounts to deceive others, damage reputations, or manipulate situations. Impersonators can <strong>destroy relationships</strong>, careers, and mental well-being of victims.</div>
+  <div class="protect-strip">
+    <div class="pt-label">Protect Yourself</div>
+    <p>Enable two-factor authentication. Report fake accounts to platforms. Alert your contacts if you discover a fake profile of you.</p>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 8: DISINFORMATION ══════════════ -->
+<div class="scene" id="s8">
+  <div class="scene-panel">
+    <div class="panel-content">
+      <div class="threat-icon-wrap">
+        <svg class="svg-icon stroke" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8.5" x2="17" y2="8.5"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="15.5" x2="13" y2="15.5"/></svg>
+      </div>
+      <div class="threat-name danger">Disinformation</div>
+      <div class="threat-desc">Deliberately spreading false information to damage reputation or manipulate public opinion. <strong>False narratives spread 6× faster</strong> than truth online — causing real psychological and social damage.</div>
+      <div class="protect-strip">
+        <div class="pt-label">Protect Yourself</div>
+        <p>Verify before sharing. Use trusted news sources. Report false content. Critical thinking is your strongest defense.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 9: STATS ══════════════ -->
+<div class="scene" id="s9">
+  <div class="scene-panel" style="max-width:52rem;">
+    <div class="panel-content" style="width:100%;">
+      <div class="scene-label"><span class="eyebrow-dot"></span>The Scale of the Problem</div>
+      <div class="scene-heading">By The <span class="hl">Numbers</span></div>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num">41%</span><div class="stat-label">of adults have experienced online harassment</div></div>
+        <div class="stat-card"><span class="stat-num r">75%</span><div class="stat-label">of victims suffer anxiety, depression &amp; trauma</div></div>
+        <div class="stat-card"><span class="stat-num">1 in 3</span><div class="stat-label">young people are cyberbullied globally</div></div>
+        <div class="stat-card"><span class="stat-num r">60%</span><div class="stat-label">of cases go unreported due to fear or shame</div></div>
+        <div class="stat-card"><span class="stat-num">90%</span><div class="stat-label">of teen victims know their harasser online</div></div>
+        <div class="stat-card"><span class="stat-num r">24/7</span><div class="stat-label">harassment never stops — it follows victims home</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 10: HOW TO PROTECT ══════════════ -->
+<div class="scene" id="s10">
+  <div class="scene-label"><span class="eyebrow-dot"></span>Defense Strategies</div>
+  <div class="scene-heading">How To <span class="hl">Protect</span> Yourself</div>
+  <div class="tips-list">
+    <div class="tip-row"><div class="tip-row-inner">
+      <div class="tip-num">01</div>
+      <div class="tip-icon"><svg class="svg-icon stroke" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <div class="tip-text"><h4>Lock Your Privacy</h4><p>Set all accounts to private. Control who can see your posts, location, and personal information.</p></div>
+    </div></div>
+    <div class="tip-row"><div class="tip-row-inner">
+      <div class="tip-num">02</div>
+      <div class="tip-icon"><svg class="svg-icon stroke" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.6-3h4.8L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
+      <div class="tip-text"><h4>Document Everything</h4><p>Screenshot all harassment. Keep records with dates and times before blocking the offender.</p></div>
+    </div></div>
+    <div class="tip-row"><div class="tip-row-inner">
+      <div class="tip-num">03</div>
+      <div class="tip-icon"><svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M5 3v18"/><path d="M5 4h11l-3 4 3 4H5"/></svg></div>
+      <div class="tip-text"><h4>Report &amp; Block</h4><p>Use platform report tools. Contact cybercrime authorities. Don't suffer in silence — report it.</p></div>
+    </div></div>
+    <div class="tip-row"><div class="tip-row-inner">
+      <div class="tip-num">04</div>
+      <div class="tip-icon"><svg class="svg-icon stroke" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-9-8.3C1.5 8.3 3.5 5 7 5c2 0 3.7 1.3 5 3 1.3-1.7 3-3 5-3 3.5 0 5.5 3.3 4 6.7-2 4-9 8.3-9 8.3Z"/></svg></div>
+      <div class="tip-text"><h4>Seek Support</h4><p>Talk to trusted family, friends, or professionals. You are not alone — help is always available.</p></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════ SCENE 11: LOGO OUTRO ══════════════ -->
+<div class="scene" id="s11">
+  <div class="scene-panel">
+    <div class="panel-watermark">CHPK</div>
+    <div class="panel-content">
+      <div class="logo-circle">
+        <svg class="svg-icon" viewBox="0 0 24 24" style="font-size:2rem;color:var(--accent-from)"><path fill="currentColor" d="M12 2 20 6v5c0 5-3.5 9-8 11-4.5-2-8-6-8-11V6l8-4Z"/></svg>
+      </div>
+      <div class="outro-tagline"><strong>Stay Safe</strong> · Protect Yourself · Speak Up</div>
+      <div class="outro-website">cyberhayatpk.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CONTROLS ══════════════ -->
+<div id="controls">
+  <button id="prevBtn" aria-label="Previous scene">‹ Prev</button>
+  <button id="pauseBtn" aria-label="Pause">Pause</button>
+  <button id="nextBtn" aria-label="Next scene">Next ›</button>
+  <button id="restartBtn" aria-label="Restart video">⟲ Replay</button>
+</div>
+
+<script src="cyberhayat-editorial.js"></script>
+</body>
+</html>
